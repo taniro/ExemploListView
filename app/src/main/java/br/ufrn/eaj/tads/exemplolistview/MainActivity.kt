@@ -31,20 +31,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         listaFrutas = db.frutaDao().listAll()
-
-        /*
+        
         listview.adapter = FrutasAdapter(this, listaFrutas as List<Fruta>)
         listview.setOnItemClickListener{adapterView, view, i, l ->
             var frutaSelecionada = listaFrutas?.get(i)
             Toast.makeText(this, "${frutaSelecionada?.nome} id=${frutaSelecionada?.id}", Toast.LENGTH_SHORT).show()
         }
-         */
 
+
+        /*
         gridview.adapter = FrutasAdapter(this, listaFrutas as List<Fruta>)
         gridview.setOnItemClickListener{adapterView, view, i, l ->
             var frutaSelecionada = listaFrutas?.get(i)
             Toast.makeText(this, "${frutaSelecionada?.nome} id=${frutaSelecionada?.id}", Toast.LENGTH_SHORT).show()
         }
+
+         */
 
     }
 }
