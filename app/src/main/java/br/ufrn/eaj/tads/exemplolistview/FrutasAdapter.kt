@@ -1,6 +1,7 @@
 package br.ufrn.eaj.tads.exemplolistview
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,16 +16,39 @@ class FrutasAdapter(c: Context, f: List<Fruta>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
-        var v = LayoutInflater.from(context).inflate(R.layout.fruta_layout, parent, false)
-        var nomeFruta = v.findViewById<TextView>(R.id.nomeFruta)
-        var imageFruta = v.findViewById<ImageView>(R.id.imgFruta)
 
-        var frutaAtual = frutas.get(position)
-
+        Log.i("AULA", "Inflou ${position}")
+        val v = LayoutInflater.from(context).inflate(R.layout.fruta_layout, parent, false)
+        val nomeFruta = v.findViewById<TextView>(R.id.nomeFruta)
+        val imageFruta = v.findViewById<ImageView>(R.id.imgFruta)
+        val frutaAtual = frutas.get(position)
         nomeFruta.text = frutaAtual.nome
         imageFruta.setImageResource(frutaAtual.imagem)
-
         return v
+
+
+        /*
+        var view:View
+        var holder:FrutaViewHolder
+
+        if (convertView == null){
+            Log.i("AULA", "Inflou ${position}")
+            view = LayoutInflater.from(parent.context).inflate(R.layout.fruta_layout, parent, false)
+            holder = FrutaViewHolder(view)
+            view.tag = holder
+        }else{
+            view = convertView
+            holder = convertView.tag as FrutaViewHolder
+        }
+
+        val frutaEscolhida = frutas.get(position)
+
+        holder.nomeFruta.text = frutaEscolhida.nome
+        holder.imgFruta.setImageResource(frutaEscolhida.imagem)
+        return view
+
+         */
+
     }
 
     override fun getItem(position: Int): Any {
@@ -38,4 +62,17 @@ class FrutasAdapter(c: Context, f: List<Fruta>) : BaseAdapter() {
     override fun getCount(): Int {
         return frutas.size
     }
+}
+
+
+
+class FrutaViewHolder(v:View){
+    var nomeFruta:TextView = v.findViewById(R.id.nomeFruta)
+    var imgFruta:ImageView = v.findViewById(R.id.imgFruta)
+
+    /*
+    init {
+        nomeFruta = v.findViewById(R.id.nomeFruta)
+        imgFruta = v.findViewById(R.id.imgFruta)
+    }*/
 }
