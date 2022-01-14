@@ -16,7 +16,7 @@ class FrutasAdapter(c: Context, f: List<Fruta>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
-
+        /*
         Log.i("AULA", "Inflou ${position}")
         val v = LayoutInflater.from(context).inflate(R.layout.fruta_layout, parent, false)
         val nomeFruta = v.findViewById<TextView>(R.id.nomeFruta)
@@ -28,10 +28,9 @@ class FrutasAdapter(c: Context, f: List<Fruta>) : BaseAdapter() {
         validadeFruta.text = frutaAtual.validade
         return v
 
-
-        /*
-        var view:View
-        var holder:FrutaViewHolder
+         */
+        val view:View
+        val holder:FrutaViewHolder
 
         if (convertView == null){
             Log.i("AULA", "Inflou ${position}")
@@ -47,10 +46,8 @@ class FrutasAdapter(c: Context, f: List<Fruta>) : BaseAdapter() {
 
         holder.nomeFruta.text = frutaEscolhida.nome
         holder.imgFruta.setImageResource(frutaEscolhida.imagem)
+        holder.validadeFruta.text = frutaEscolhida.validade
         return view
-
-         */
-
     }
 
     override fun getItem(position: Int): Any {
@@ -71,6 +68,7 @@ class FrutasAdapter(c: Context, f: List<Fruta>) : BaseAdapter() {
 class FrutaViewHolder(v:View){
     var nomeFruta:TextView = v.findViewById(R.id.nomeFruta)
     var imgFruta:ImageView = v.findViewById(R.id.imgFruta)
+    var validadeFruta:TextView = v.findViewById(R.id.valdadeFruta)
 
     /*
     init {

@@ -38,10 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         //listview.adapter = FrutasAdapter(this, listaFrutas as List<Fruta>)
 
-        //val adapterView = FrutasAdapter(applicationContext, listaFrutas as List<Fruta>)
+        val adapterView = FrutasAdapter(applicationContext, listaFrutas as List<Fruta>)
 
-        val adapterView = NovoFrutasAdapter()
-        adapterView.listaFrutas = listaFrutas as List<Fruta>
+        //val adapterView = NovoFrutasAdapter()
+        //adapterView.listaFrutas = listaFrutas as List<Fruta>
 
         binding.listview.adapter = adapterView
 
