@@ -17,16 +17,16 @@ class MainActivity : AppCompatActivity() {
             .build()
     }
 
-    var listaFrutas:List<Fruta>? = null
+    lateinit var listaFrutas:List<Fruta>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val f1 = Fruta ("Maça", R.drawable.fruit)
-        val f2 = Fruta ("Pera", R.drawable.fruit)
-        val f3 = Fruta ("Uva", R.drawable.fruit)
+        val f1 = Fruta ("Maça", R.drawable.fruit, "12/01/2021")
+        val f2 = Fruta ("Pera", R.drawable.fruit, "15/02/2021")
+        val f3 = Fruta ("Uva", R.drawable.fruit, "10/12/2022")
 
         with(db.frutaDao()){
             add(f1)
@@ -38,17 +38,18 @@ class MainActivity : AppCompatActivity() {
 
         //listview.adapter = FrutasAdapter(this, listaFrutas as List<Fruta>)
 
-        val adapterView = FrutasAdapter(applicationContext, listaFrutas as List<Fruta>)
-        //adapterView.listaFrutas = listaFrutas as List<Fruta>
+        //val adapterView = FrutasAdapter(applicationContext, listaFrutas as List<Fruta>)
+
+        val adapterView = NovoFrutasAdapter()
+        adapterView.listaFrutas = listaFrutas as List<Fruta>
 
         binding.listview.adapter = adapterView
 
+
         binding.listview.setOnItemClickListener { parent, view, position, id ->
-            val frutaSelecionada = listaFrutas?.get(position)
-            Toast.makeText(this, "${frutaSelecionada?.nome} id=${frutaSelecionada?.id}", Toast.LENGTH_SHORT).show()
+            val frutaSelecionada = listaFrutas.get(position)
+            Toast.makeText(this, "${frutaSelecionada.nome} id=${frutaSelecionada.id}", Toast.LENGTH_SHORT).show()
         }
-
-
 
         /*
         binding.listview.setOnItemClickListener{adapterView, view, i, l ->

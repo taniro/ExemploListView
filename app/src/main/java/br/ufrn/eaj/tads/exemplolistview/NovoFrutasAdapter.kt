@@ -31,6 +31,7 @@ class NovoFrutasAdapter(/*var listaFrutas: List<Fruta>*/) : BaseAdapter() {
 
         val nomeFruta = view.findViewById<TextView>(R.id.nomeFruta)
         val imgFruta = view.findViewById<ImageView>(R.id.imgFruta)
+        val validadeFruta = view.findViewById<TextView>(R.id.valdadeFruta)
 
         val frutaAtual = listaFrutas.get(position)
 
@@ -39,6 +40,7 @@ class NovoFrutasAdapter(/*var listaFrutas: List<Fruta>*/) : BaseAdapter() {
 
         nomeFruta.text = frutaAtual.nome
         imgFruta.setImageResource(frutaAtual.imagem)
+        validadeFruta.text = frutaAtual.validade
 
         return view
     }

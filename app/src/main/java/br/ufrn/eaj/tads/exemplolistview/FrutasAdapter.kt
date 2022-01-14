@@ -21,9 +21,11 @@ class FrutasAdapter(c: Context, f: List<Fruta>) : BaseAdapter() {
         val v = LayoutInflater.from(context).inflate(R.layout.fruta_layout, parent, false)
         val nomeFruta = v.findViewById<TextView>(R.id.nomeFruta)
         val imageFruta = v.findViewById<ImageView>(R.id.imgFruta)
+        val validadeFruta = v.findViewById<TextView>(R.id.valdadeFruta)
         val frutaAtual = frutas.get(position)
         nomeFruta.text = frutaAtual.nome
         imageFruta.setImageResource(frutaAtual.imagem)
+        validadeFruta.text = frutaAtual.validade
         return v
 
 

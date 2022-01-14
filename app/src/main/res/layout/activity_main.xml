@@ -11,12 +11,12 @@
         tools:context=".MainActivity">
 
 
+
         <ListView
             android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/fruta_layout" />
-
 
         <!--
         <GridView
@@ -25,7 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
             -->
-
 
     </LinearLayout>
 </layout>
